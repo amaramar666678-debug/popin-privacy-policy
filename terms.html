@@ -3,56 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شروط الخدمة - Popin</title>
+    <title>Popin - طلب حذف الحساب</title>
     <style>
-        body { font-family: Tahoma, sans-serif; line-height: 1.8; padding: 20px; max-width: 800px; margin: auto; color: #333; background-color: #f9f9f9; text-align: right; }
-        .header-container { text-align: center; margin-bottom: 30px; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; font-size: 24px; }
-        h2 { color: #34495e; margin-top: 30px; font-size: 20px; }
-        p, li { font-size: 16px; }
-        ul { padding-right: 20px; }
-        li { margin-bottom: 10px; }
-        .footer-nav { margin-top: 50px; padding: 20px; background: #fff; border-top: 2px solid #ddd; text-align: center; }
-        .footer-nav a { margin: 0 10px; color: #3498db; text-decoration: none; font-weight: bold; }
-        .footer-nav a:hover { text-decoration: underline; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 450px;
+            width: 100%;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .btn-delete {
+            width: 100%;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-delete:hover {
+            background-color: #c0392b;
+        }
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 6px;
+            display: none;
+            font-size: 14px;
+            text-align: center;
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
     </style>
 </head>
 <body>
-    <div class="header-container">
-        <h1>شروط الخدمة لتطبيق Popin</h1>
-    </div>
 
-    <p>يرجى قراءة شروط الخدمة هذه بعناية قبل استخدام التطبيق أو الموقع. باستخدامك للخدمة، فإنك توافق على الالتزام التام بهذه الشروط.</p>
+<div class="container">
+    <h2>حذف حساب Popin</h2>
+    <p>عند حذف حسابك، سيتم حذف جميع بياناتك الشخصية، المحادثات، والملف الشخصي نهائياً وبشكل لا يمكن استرجاعه.</p>
+    
+    <form id="deleteForm">
+        <div class="form-group">
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" required placeholder="أدخل بريدك الإلكتروني">
+        </div>
+        <div class="form-group">
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" required placeholder="أدخل كلمة المرور">
+        </div>
+        <button type="submit" class="btn-delete" id="submitBtn">تأكيد حذف الحساب نهائياً</button>
+    </form>
 
-    <h2>1. التسجيل والأهلية</h2>
-    <ul>
-        <li>يجب ألا يقل عمر المستخدم عن 18 عاماً لاستخدام التطبيق.</li>
-        <li>أنت مسؤول مسؤولية كاملة عن سرية كلمة المرور وأنشطة حسابك.</li>
-        <li>يُمنع استخدام التطبيق لأغراض تجارية أو إجرامية أو ترويجية.</li>
-    </ul>
+    <div id="statusMessage" class="message"></div>
+</div>
 
-    <h2>2. القيود وحظر الروابط والـ VPN والروت (Root)</h2>
-    <p>باستخدامك للتطبيق، توافق على عدم القيام بأي مما يلي:</p>
-    <ul>
-        <li><strong>إرسال الروابط:</strong> يُحظر تماماً إرسال أو نشر أي روابط إلكترونية (URLs) أياً كانت داخل المحادثات أو الملف الشخصي.</li>
-        <li><strong>شبكات VPN:</strong> يُمنع منعاً باتاً استخدام برامج أو شبكات الاتصال الافتراضية (VPN) أثناء تشغيل التطبيق. التطبيق مبرمج لإيقاف الخدمة تلقائياً عند اكتشاف اتصال عبر VPN.</li>
-        <li><strong>أجهزة الروت (Root):</strong> يُمنع استخدام التطبيق على الأجهزة التي تحتوي على صلاحيات الروت (Root). التطبيق مبرمج لفحص النظام وعرض واجهة تنبيه كاملة الشاشة تمنع استخدام التطبيق نهائياً حتى يتم إغلاق الروت.</li>
-        <li>رفع برمجيات خبيثة، فيروسات، أو محاولة إجراء هندسة عكسية للتطبيق أو الالتفاف على أنظمة الأمان.</li>
-        <li>انتحال شخصيات الآخرين أو نشر محتوى مضلل أو غير قانوني.</li>
-    </ul>
+<script>
+    document.getElementById('deleteForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
 
-    <h2>3. إخلاء المسؤولية وإخلاء الطرف</h2>
-    <p>يتم تقديم الخدمات على أساس "كما هي" و"كما هو متاح". لا يقدم مطور التطبيق أي ضمانات صريحة أو ضمنية بشأن التشغيل المستمر أو الخالي من الأخطاء. التواصل عبر الإنترنت ينطوي على مخاطر، والمطور غير مسؤول عن سلوكيات المستخدمين الآخرين.</p>
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const submitBtn = document.getElementById('submitBtn');
+        const messageDiv = document.getElementById('statusMessage');
 
-    <h2>4. إنهاء الحساب</h2>
-    <p>يحق لمطور التطبيق تعليق أو إنهاء حسابك في أي وقت دون إشعار مسبق في حال مخالفة هذه الشروط والأحكام، بما في ذلك محاولات الالتفاف على أنظمة الأمان (مثل استخدام الـ VPN أو الروت).</p>
+        if (!confirm('هل أنت متأكد من أنك تريد حذف حسابك نهائياً؟')) {
+            return;
+        }
 
-    <!-- الروابط السفلية (قانوني) -->
-    <div class="footer-nav">
-        <h3 style="font-size: 18px;">قانوني</h3>
-        <a href="index.html">سياسة الخصوصية وإرشادات المجتمع</a> |
-        <a href="terms.html">شروط الخدمة</a> |
-        <a href="cookies.html">سياسة ملفات تعريف الارتباط</a>
-    </div>
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'جاري المعالجة...';
+        messageDiv.style.display = 'none';
+
+        try {
+            const response = await fetch('https://popin-api.onrender.com/api/delete-account', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                messageDiv.className = 'message success';
+                messageDiv.innerText = 'تم حذف الحساب وجميع البيانات المرتبطة به بنجاح.';
+                messageDiv.style.display = 'block';
+                document.getElementById('deleteForm').reset();
+            } else {
+                messageDiv.className = 'message error';
+                messageDiv.innerText = data.message || 'حدث خطأ أثناء حذف الحساب. تأكد من البيانات.';
+                messageDiv.style.display = 'block';
+            }
+        } catch (error) {
+            messageDiv.className = 'message error';
+            messageDiv.innerText = 'تعذر الاتصال بالخادم، يرجى المحاولة لاحقاً.';
+            messageDiv.style.display = 'block';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'تأكيد حذف الحساب نهائياً';
+        }
+    });
+</script>
+
 </body>
 </html>
